@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+	<body ng-app="YourApp">
+	<div ng-controller="YourController">
+    <div layout="row" layout-xs="column" layout-wra>
+      <div flex="25">
+        I'm above on mobile, and to the left on larger devices.
+      </div>
+      <div flex="50">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Large</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+      </div>
+      <div flex="25">
+        I'm below on mobile, and to the right on larger devices.
+      </div>
+    </div>
+	</div>
+
+
+
+  <!--scripts-->
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

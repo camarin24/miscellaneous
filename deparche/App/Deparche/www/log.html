@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="log">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/semantic.css">
+    <title>Logs Deparche</title>
+  </head>
+  <body>
+    <div class="ui grid container">
+      <div class="four wide column">
+        <h2 class="ui header">
+          <i class="plug icon"></i>
+          <div class="content">
+            Logs Deparche.com
+          </div>
+        </h2>
+      </div>
+    </div>
+
+    <table class="ui celled table" ng-controller="logs">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Mensaje</th>
+          <th>Vista</th>
+          <th>Linea</th>
+          <th>Error</th>
+          <th>Archivos</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-repeat="log in logs">
+          <td>{{log.idPersona}}</td>
+          <td>{{log.mensaje}}</td>
+          <td>{{log.vista}}</td>
+          <td>{{log.linea}}</td>
+          <td>{{log.error}}</td>
+          <td>{{log.archivo}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/semantic.js"></script>
+    <script type="text/javascript" src="js/log.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="comentarios">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/semantic.css">
+  </head>
+  <body>
+    <div class="ui form" ng-controller="cometariosController">
+      <div class="field">
+         <label>Comentario</label>
+         <input type="text" name="first-name" placeholder="First Name" ng-model="nuevoComentario.comentario">
+      </div>
+      <div class="field">
+        <label>Usuario</label>
+        <input type="text" name="first-name" placeholder="First Name" ng-model="nuevoComentario.user">
+      </div>
+      <input type="button" name="name" value="HEllo" class="ui button" ng-click="agregarCometario()">
+      <div class="ui success message">
+          <div class="header">Form Completed</div>
+          <p>You're all signed up for the newsletter.</p>
+      </div>
+      <ul ng-repeat="comentario in comentarios">
+        <li>{{comentario.comentario}}</li> <strong>{{comentario.user}}</strong>
+      </ul>
+    </div>
+
+    <table class="ui table" ng-controller="cometariosController">
+      <thead>
+        <tr>
+          <th>Correo</th>
+        </tr>
+        <tbody>
+          <tr ng-repeat="user in users">
+            <td>{{user.email}}</td>
+          </tr>
+        </tbody>
+      </thead>
+    </table>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/semantic.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>

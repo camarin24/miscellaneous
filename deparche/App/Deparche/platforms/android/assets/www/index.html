@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta charset="UTF-8">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/framework7.material.css">
+  <link rel="stylesheet" type="text/css" href="css/framework7.material.colors.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+
+<body class="theme-deeppurple">
+  <div class="views">
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-cover">
+      <div class="content-block profile" style="margin-top:0px;margin-bottom:0px;">
+        <div class="content-block-inner">
+          <img id="image_profile" onclick="mainView.router.loadPage({ pageName: 'perfil' })" src="https://s-media-cache-ak0.pinimg.com/736x/03/3f/c5/033fc537c42bfe4e2eb5b6e128a2d083.jpg"
+            class="img-profile close-panel"></img>
+        </div>
+        <p class="user-name" id="lbl_user_name">Nombre se usuario</p>
+        <div class="content-block-title sub-title">
+          <p id="lbl_mensaje_personal"></p>
+        </div>
+      </div>
+      <div class="list-block" style="margin-top:0px;">
+        <ul>
+          <li>
+            <a href="#dash" data-content="#content_wall" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-form-name" src="img/icons/home.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Inicio</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#programate" class="item-link item-content close-panel" data-content="#eventosListar">
+              <div class="item-media">
+                <img class="icon icon-form-name" src="img/icons/programate.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Prográmate</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#eventos" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-f7" src="img/icons/place.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Eventos</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#parches" data-content="#lista_parches" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-form-name" src="img/icons/grupo.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Parches</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#perfil" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-f7" src="img/icons/ic_perm_identity_24px.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Perfil</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#amigos" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-f7" src="img/icons/amigos.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Amigos</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#notificaciones" class="item-link item-content close-panel" data-content="#content_notificaciones">
+              <div class="item-media">
+                <img class="icon icon-f7" src="img/icons/notificacion.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Notificaciones</div>
+                <div class="item-after"><span class="badge" id="lbl_num_notificaciones">0</span></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="" id="exitApp" class="item-link item-content close-panel">
+              <div class="item-media">
+                <img class="icon icon-f7" src="img/icons/exit.svg"></img>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">Salir</div>
+                <div class="item-after"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- View -->
+    <div class="view view-main">
+      <!-- Pages -->
+      <div class="pages">
+        <!-- Home page -->
+        <div class="page toolbar-fixed" data-page="index">
+          <div class="page-content panel_login">
+            <div class="row">
+              <div class="col-10"></div>
+              <div class="col-80">
+                <img src="img/main_icon_text.png" id="myImage" class="main_icon_text">
+              </div>
+              <div class="col-10"></div>
+            </div>
+            <form id="form_login" class="list-block">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE8A6;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="email" id="txt_email" placeholder="Correo electrónico" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-media"><i class="material-icons">&#xE899;</i></div>
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input type="password" id="txt_password" placeholder="Contraseña" />
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </form>
+            <div class="row">
+              <div class="col-10"></div>
+              <div class="col-80">
+                <a href="#" class="button button-fill button-raised" id="btn_login">Iniciar sesión</a>
+                <br>
+                <div class="row">
+                  <div class="col-45">
+                    <hr> </div>
+                  <div class="col-10">O</div>
+                  <div class="col-45">
+                    <hr> </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-50">
+                    <a href="" id="gplus" class="button button-raised button-fill color-red">GOOGLE</a>
+                  </div>
+                  <div class="col-50">
+                    <a href="#" class="button button-raised button-fill color-indigo">Facebook</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10"></div>
+            </div>
+            <br>
+            <br>
+            <br>
+          </div>
+          <div class="toolbar">
+            <div class="row">
+              <div class="col-10"></div>
+              <div class="col-80">
+                <a href="#registro" class="button button-big color-white">Regístrate en Deparche</a>
+              </div>
+              <div class="col-10"></div>
+            </div>
+          </div>
+        </div>
+        <!--registro-->
+        <div class="page cached navbar-fixed toolbar-fixed" data-page="registro">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="link icon-only back">
+                  <i class="material-icons">&#xE5CB;</i>
+                </a>
+              </div>
+              <div class="center" id="tituloRegistro">Condiciones y privacidad</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <form class="swiper-container">
+              <!-- Slides wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-80">
+                      <img src="img/main_icon_text.png" class="main_icon_text" />
+                    </div>
+                    <div class="col-10"></div>
+                  </div>
+                  <div class="content-block">
+                    <div class="content-block-inner">
+                      El usuario es dueño de la información que sube a DeParche.com, en la plataforma se le permite al usuario limitar el acceso
+                      a la información publicada, pero es responsabilidad del usuario escoger si su información es de carácter
+                      público, que solo la puedan ver sus contactos (amigos) o privada (solo él la puede ver); para realizar
+                      esta selección el usuario debe dirigirse a PERFIL e ingresar al botón INFORMACIÓN.
+                    </div>
+                    <a href="#" class="button button-fill button-raised btnSlide" data-slide="0">Siguiente</a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <h2 class="sin-margin-buttom" style="padding: 0px 1px;">
+                    Ingresa tu dirección de correo elecrónico y contraseña.
+                  </h2>
+                  <div class="content-block sin-margin-top">
+                    <div class="content-block-inner">
+                      Usaras este correo cuando inicies sesión y si alguna vez tienes que cambiar la contraseña. Recuerda esta contraseña. Las
+                      contraseñas impiden que desconocidos usen tu cuenta.
+                    </div>
+                  </div>
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="email" id="email" name="email" placeholder="Correo electrónico" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="password" id="password" name="password" placeholder="Contraseña" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="password" id="re_password" name="re_password" placeholder="Repetir contraseña" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content-block">
+                    <a href="#" class="button button-fill button-raised btnSlide" data-slide="1">Siguiente</a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <h3 class="sin-margin-buttom">
+                    ¿Como te llamas?
+                  </h3>
+                  <div class="content-block sin-margin-top">
+                    <div class="content-block-inner">
+                      Si usas tu nombre real, tus amigos te reconocerán mas fácilmente.
+                    </div>
+                  </div>
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="text" id="apellido" name="apellido" placeholder="Apellido" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content-block">
+                    <a href="#" class="button button-fill button-raised btnSlide" data-slide="2">Siguiente</a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <h3 class="sin-margin-buttom">¿Cuándo naciste?</h3>
+                  <div class="content-block sin-margin-top">
+                    <div class="content-block-inner">
+                      Ingresa tu fecha de nacimieno. Si indicas tu sexo, tendrás una mejor experiencia en Deparche.
+                    </div>
+                  </div>
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <input type="date" name="fechaNac" id="fechaNac" />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-input">
+                              <select id="genero2" name="genero2">
+                                <option value="">Seleccione</option>
+                                <option value="1">Hombre</option>
+                                <option value="2">Mujer</option>
+                                <option value="3">Prefiero no responder</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content-block">
+                    <a href="#" class="button button-fill button-raised btnSlide" data-slide="3">Finalizar registro</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination" style="display: none;"></div>
+            </form>
+          </div>
+        </div>
+        <!--gustos-->
+        <div class="page cached navbar-fixed toolbar-fixed" data-page="gustos">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a href="#" class="link icon-only open-panel">
+                </a>
+              </div>
+              <div class="center">Elige tus gustos</div>
+            </div>
+          </div>
+          <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+              <a href="#"></a>
+              <a href="" id="gustos" class="link icon-only">
+                Comencemos <img src="img/icons/adelante.svg"></img>
+              </a>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="content-block-title">¿Qué te gustaria ver?</div>
+            <form class="content-block list-block form-gustos">
+              <ul>
+              </ul>
+            </form>
+          </div>
+        </div>
+        <!--dash-->
+        <div data-page="dash" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Actualidad</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content pull-to-refresh-content" data-ptr-distance="55">
+            <!-- Contenido -->
+            <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <div id="content_wall"></div>
+          </div>
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <a href="#" class="link" id="btn_publicacion">
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-input" style="margin-left: -20px;">
+                            <input type="text" value="¿Que está pasando?" id="txt_publicacion" disabled="true"></input>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </a>
+              <a href="#" class="link">
+                <img src="img/icons/camera.svg" id="btn_agregar_imagen_primero"></img>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--publicaciones-->
+        <div data-page="publicacion" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="center">Publíca</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 24px;">
+            <div class="list-block">
+              <ul>
+                <li class="align-top">
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label">Comparte lo que estás haciendo con tus amigos:</div>
+                      <div class="item-input">
+                        <textarea id="txt_publicacion_text"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div id="contenido_publicacion">
+                <!-- Aqui se va a agregar las imagenes para la publicacion -->
+                <div id="imagen_publicacion">
+                  <img id='myPhotoImage' src="" style="height:0"></img>
+                </div>
+                <div id="enlace_publicacion"></div>
+              </div>
+            </div>
+            <div class="speed-dial" style="bottom: 84px;">
+              <a href="#" class="floating-button">
+                <i class="icon icon-plus"></i>
+                <i class="icon icon-close"></i>
+              </a>
+              <div class="speed-dial-buttons">
+                <a href="#" id="btn_agregar_imagen_camera">
+                  <img src="img/icons/camera.svg"></img>
+                </a>
+                <a href="#" id="btn_agregar_imagen_album">
+                  <img src="img/icons/isert image.svg"></img>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <a href="#" class="link" id="btn_cancelar_publicacion">
+                Cancelar
+              </a>
+              <a href="#" class="link" id="btn_publicar">
+                Publicar
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--Programacion-->
+        <div data-page="programate" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Prográmate</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <!-- Contenido -->
+            <div class="list-block media-list" style="margin:56px 0;">
+              <ul id="eventosListar">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--Crear parche-->
+        <div data-page="crearParche" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="center">Crea un parche</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 24px;">
+            <div class="list-block">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title floating-label">Nombre</div>
+                      <div class="item-input item-input-field">
+                        <input class="" id="txt_nombre_nuevo_parche" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <!-- Aqui el boton de camara -->
+                      <p id="btn_foto_crear_parche"><a href="#" class="button">Añade una foto</a></p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <!-- Aqui el boton de camara -->
+                      <img src="" id="image_crear_parche" style="width:0;"></img>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+              <a href="#" class="link back">
+                    Cancelar
+                  </a>
+              <a href="#" id="btn_crear_parche" class="link">
+                    Crear
+                  </a>
+            </div>
+          </div>
+        </div>
+        <!--Parches-->
+        <div data-page="parches" class="page cached with-subnavbar">
+          <div class="navbar ">
+            <div class="navbar-inner with-subnavbar">
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Parches</div>
+            </div>
+          </div>
+          <a href="#crearParche" class="floating-button color-pink">
+            <i class="icon icon-plus"></i>
+          </a>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 56px;">
+            <div class="content-block" style="padding: 0;margin: 0;">
+              <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                  <input type="search" placeholder="Search">
+                  <a href="#" class="searchbar-clear"></a>
+                </div><a href="#" class="searchbar-cancel">Cancel</a>
+              </form>
+              <!-- Search Bar overlay -->
+              <div class="searchbar-overlay"></div>
+              <div class="content-block" style="margin-top: -33px;">
+                <div class="list-block media-list list-block-search searchbar-found">
+                  <ul id="lista_parches">
+                    <!--este seria el estilo de la lista de los parches, se muestra la imagen y el nombre-->
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Detalle del parche-->
+        <div data-page="detalleParche" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center" id="parche_titulo"></div>
+            </div>
+          </div>
+          <div class="speed-dial">
+            <a href="#" class="floating-button">
+              <i class="icon icon-plus"></i>
+              <i class="icon icon-close"></i>
+            </a>
+            <div class="speed-dial-buttons">
+              <a href="#" id="btn_borrar_parche">
+                <img src="img/icons/delete.svg"></img>
+              </a>
+              <a href="#" id="btn_abandonar_parche" onclick="">
+                <img src="img/icons/exitWhite.svg"></img>
+              </a>
+              <a href="#" id="invitarAmigoAlParche">
+                <img src="img/icons/addFriend.svg"></img>
+              </a>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content hide-bars-on-scroll" style="background-color:#fefefe;">
+            <!-- Contenido -->
+
+            <div class="detalleParche" id="img_parche_detalle">
+            </div>
+            <div class="content-block" style="margin-bottom: 0px; margin-top:0px;">
+
+              <!-- Buttons row as tabs controller -->
+              <div class="buttons-row">
+                <!-- Link to 1st tab, active -->
+                <a href="#publicaciones" class="tab-link active button button-big color-deeppurple">Publicaciones</a>
+                <!-- Link to 2nd tab -->
+                <a href="#miembros" class="tab-link button button-big color-deeppurple">Miembros</a>
+              </div>
+            </div>
+            <div class="tabs-animated-wrap tabs-swipeable-wrap" style="background-color: #EFEFF4;">
+              <div class="tabs">
+                <div id="publicaciones" class="tab active">
+                  <!-- Contenido publicaciones -->
+                </div>
+                <div id="miembros" class="tab" style="margin-top: -33px;">
+                  <div class="list-block">
+                    <div class="list-group">
+                      <ul id="miembros_parche">
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Amigos-->
+        <div data-page="amigos" class="page cached">
+          <div class="navbar ">
+            <div class="navbar-inner with-subnavbar">
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Amigos</div>
+            </div>
+          </div>
+          <div class="speed-dial">
+            <!-- FAB inside will open Speed Dial actions -->
+            <a href="#" class="floating-button">
+              <!-- First icon is visible when Speed Dial actions are closed -->
+              <i class="icon icon-plus"></i>
+              <!-- Second icon is visible when Speed Dial actions are opened -->
+              <i class="icon icon-close"></i>
+            </a>
+            <!-- Speed Dial Actions -->
+            <div class="speed-dial-buttons">
+              <!-- First Speed Dial button -->
+              <a href="#buscarAmigos">
+                <img src="img/icons/buscar.svg" alt="">
+              </a>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 56px;">
+            <div class="list-block">
+              <div class="list-group">
+                <ul id="listaamigos" style="margin-top: -32px;">
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Detalle del amigo-->
+        <div data-page="detalleAmigo" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center" id="lbl_nombre_amigo"></div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content hide-bars-on-scroll" style="background-color:#fefefe;">
+            <!-- Contenido -->
+            <div class="detalleParche" id="img_amigo_detalle">
+            </div>
+            <div class="content-block" style="margin-bottom: 0px; margin-top:0px;">
+              <!-- Buttons row as tabs controller -->
+              <div class="buttons-row">
+                <!-- Link to 1st tab, active -->
+                <a href="#muroAmigo" class="tab-link active button button-big color-deeppurple">Publicaciones</a>
+                <!-- Link to 2nd tab -->
+                <a href="#amigosAmigo" class="tab-link button button-big color-deeppurple">Amigos</a>
+              </div>
+            </div>
+            <div class="tabs-animated-wrap tabs-swipeable-wrap" style="background-color: #EFEFF4;">
+              <div class="tabs">
+                <div id="muroAmigo" class="tab active">
+                  <!-- Aqui van las publicaciones -->
+                </div>
+                <div id="amigosAmigo" class="tab">
+                  <div class="list-block">
+                    <div class="list-group" id="lista_amigos_amigo">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Eventos-->
+        <div data-page="eventos" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Eventos</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <!-- Contenido -->
+            <div class="content-block-inner" style="padding-bottom:0px;">
+              <div id="calendar-inline-container"></div>
+            </div>
+            <div class="list-block media-list" style="margin:0 0;">
+              <ul>
+                <li>
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media imagen-parche"><img src="..." width="80" height="80"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                        <div class="item-after">$15</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                      <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media imagen-parche"><img src="..." width="80" height="80"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                        <div class="item-after">$15</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                      <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="item-link item-content">
+                    <div class="item-media imagen-parche"><img src="..." width="80" height="80"></div>
+                    <div class="item-inner">
+                      <div class="item-title-row">
+                        <div class="item-title">Yellow Submarine</div>
+                        <div class="item-after">$15</div>
+                      </div>
+                      <div class="item-subtitle">Beatles</div>
+                      <div class="item-text">Lorem ipsum dolor sit amet...</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--buscar eventos-->
+        <div data-page="buscarEventos" class="page cached with-subnavbar">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="center">Busca eventos</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content hide-bars-on-scroll" style="margin-top: 56px;">
+            <div class="content-block" style="padding: 0;margin: 0;">
+              <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                  <input type="search" placeholder="Search">
+                  <a href="#" class="searchbar-clear"></a>
+                </div><a href="#" class="searchbar-cancel">Cancel</a>
+              </form>
+              <!-- Search Bar overlay -->
+              <div class="searchbar-overlay"></div>
+              <div class="content-block">
+                <div class="list-block media-list list-block-search searchbar-found">
+                  <ul>
+                    <!--este seria el estilo de la lista de los parches, se muestra la imagen y el nombre-->
+                    <li>
+                      <a href="#" class="item-link item-content">
+                        <div class="item-media"><img src="..." width="44"></div>
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">Yellow Submarine</div>
+                          </div>
+                          <div class="item-subtitle">Beatles</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="item-link item-content">
+                        <div class="item-media"><img src="..." width="44"></div>
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">Yellow Submarine</div>
+                          </div>
+                          <div class="item-subtitle">Beatles</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <a href="#" class="link back">
+                Cancelar
+              </a>
+              <a href="#" class="link">
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--Notificaciones-->
+        <div data-page="notificaciones" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Notificaciones</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="padding-top:65px;" id="content_notificaciones">
+
+          </div>
+        </div>
+        <!--Perfil-->
+        <div data-page="perfil" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Perfil</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="padding-top:65px;">
+            <div class="perfil">
+              <img id="imagenPerfil" src="img/img-profile.jpg" alt="">
+            </div>
+            <form id="profileinformationForm">
+              <div class="content-block-title" style="margin-bottom:0px;">INFORMACIÓN PERSONAL</div>
+              <div class="content-block" style="padding:0px;">
+                <div class="list-block" style="margin-top:5px;">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Nombre</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="nombre" value="" placeholder="Nombre">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Apellido</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" value="" name="apellido" placeholder="Apellido">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Fecha Nacimiento</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Documento de identidad</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="numeroIdentificacion" placeholder="Número de identificación">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Género</div>
+                          <div class="item-input">
+                            <select id="genero" name="genero">
+                              <option value="">Seleccione</option>
+                              <option value="1">Hombre</option>
+                              <option value="2">Mujer</option>
+                              <option value="3">Prefiero no responder</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Lugar de estudio</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="lugarEstudio" placeholder="Lugar de estudio">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Lugar de trabajo</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="lugarTrabajo" placeholder="Lugar de trabajo">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Ciudad</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <select id="ciudad" name="ciudad">
+                              <option value="">Seleccione</option>
+                            </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Dirección</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="dereccion" placeholder="Dirección">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Teléfono</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="numeroCelular" placeholder="Teléfono">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Mensaje Personal</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="mensajePersonal" placeholder="Mensaje Personal">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">INFORMACIÓN ADICIONAL</div>
+              <div class="content-block" style="padding:0px;">
+                <div class="list-block" style="margin-top:5px;">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Recibir Correos</div>
+                          <div class="item-input">
+                            <label class="label-switch">
+                              <input type="checkbox" name="recibirCorreos">
+                              <div class="checkbox"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">E-Mail</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="text" name="email" placeholder="E-Mail">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">Contraseña</div>
+                          <div class="edit_profile">
+                            <div class="item-input">
+                              <input type="password" name="contrasenia" placeholder="Contraseña">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--Detalle evento-->
+        <div data-page="detalleEvento" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <br>
+              <div class="left">
+                <a href="#" class="link icon-only back">
+                  <i class="icon icon-back"></i>
+                </a>
+              </div>
+              <div class="center" id="lbl_titulo_programacion">Nonmbre evento</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="speed-dial">
+            <a href="#" id="btn_nuevo_evento" class="floating-button">
+              <i class="icon icon-plus"></i>
+              <i class="icon icon-close"></i>
+            </a>
+            <div class="speed-dial-buttons">
+              <a href="#buscarEventos">
+                <img src="img/icons/buscar.svg"></img>
+              </a>
+              <a href="#crearEvento">
+                <img src="img/icons/plus.svg"></img>
+              </a>
+            </div>
+          </div>
+          <div class="page-content hide-bars-on-scroll" style="background-color:#fefefe;">
+            <!-- Contenido -->
+            <div class="detalleParche" id="img_programacion_detalle">
+            </div>
+            <div class="content-block" style="margin-bottom: 0px; margin-top:0px;">
+              <div class="content-block-title" style="margin-bottom:0px;">Nombre</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_nombre_programacion">Discoteca</p>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">Dirección</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_direccion_programacion">Calle falsa # 12 - 34 Medellín, Colombia</p>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">Cover</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_valor_programacion">222-33-44</p>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">Sitio web</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_web_programacion">https://www.facebook.com/barloventodiscoteca</p>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">Descripción</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_descripcion_programacion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, facilis, cum, corrupti ipsa quo ut nisi
+                  magnam reprehenderit saepe quasi tempore rem sequi nostrum enim adipisci eligendi cupiditate perferendis
+                  quod.
+                </p>
+              </div>
+              <div class="content-block-title" style="margin-bottom:0px;">Descuentos</div>
+              <div class="content-block inset" style="padding:0px;margin-bottom: 0px;">
+                <p id="lbl_descuento_programacion">https://www.facebook.com/barloventodiscoteca</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Crear evento-->
+        <div data-page="crearEvento" class="page cached">
+          <div class="navbar ">
+            <div class="navbar-inner with-subnavbar">
+              <div class="left">
+                <a href="#" class="link icon-only back">
+                  <i class="icon icon-back"></i>
+                </a>
+              </div>
+              <div class="center">Crear Evento</div>
+            </div>
+          </div>
+          <div class="toolbar toolbar-bottom" style="position:absolute;">
+            <div class="toolbar-inner">
+              <a href="#" class="link close-popup" onclick="myApp.closeModal();">Cancelar</a>
+              <a href="#" class="link" onclick="app.programate.creaEvento();">Crear</a>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 56px;">
+            <div class="content-block-title">INFORMACIÓN DEL EVENTO</div>
+            <div class="list-block" style="margin-bottom: 65px;">
+              <div class="list-group">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Título</div>
+                        <div class="item-input">
+                          <input type="text" placeholder="Título" id="txt_titulo_creaprogramate">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">¿Con cuál(es) parche(s)?</div>
+                        <div class="edit_profile">
+                          <div class="item-input" id="eventoparche">
+                            <input type="text" placeholder="" style="display:none">
+                            <div class="chip">
+                              <div class="chip-label">Example Chip</div>
+                              <a href="#" class="chip-delete"></a>
+                            </div>
+                          </div>
+                          <img src="img/icons/edit.svg" class="agregarMiembroEvento" id="btn_agregar_parches_programate" data-tipo="parche"></img>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">¿Con cuál(es) amigo(s)?</div>
+                        <div class="edit_profile">
+                          <div class="item-input" id="eventoamigo">
+                            <input type="text" placeholder="" style="display:none">
+                            <div class="chip">
+                              <div class="chip-label">Example Chip</div>
+                              <a href="#" class="chip-delete"></a>
+                            </div>
+                          </div>
+                          <img src="img/icons/edit.svg" class="agregarMiembroEvento" id="btn_agregar_amigos_programate" data-tipo="amigo"></img>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Descripción</div>
+                        <div class="item-input">
+                          <textarea id="txt_descrip_crea_programate"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Fecha</div>
+                        <div class="item-input">
+                          <input type="date" id="txt_fecha_crea_programate" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Hora inicio</div>
+                        <div class="item-input">
+                          <input type="time" id="txt_hini_crea_programate" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Hora Fin</div>
+                        <div class="item-input">
+                          <input type="time" id="txt_hfin_crea_programate" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--buscar amigos-->
+        <div data-page="buscarAmigos" class="page cached">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="center">Busca amigos</div>
+            </div>
+          </div>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 56px;">
+            <div class="content-block" style="padding: 0;margin: 0;">
+              <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                  <input id="searchFriends" type="search" placeholder="Search">
+                  <a href="javascript:app.buscarAmigos.cancelar(false)" class="searchbar-clear"></a>
+                </div><a href="#" class="searchbar-cancel">Cancel</a>
+              </form>
+              <!-- Search Bar overlay -->
+
+            </div>
+            <div class="list-block" style="padding-bottom: 66px;">
+              <div class="list-group">
+                <ul id="listaNuevosAmigos" style="margin-top: -32px;">
+                  <div class="card" style="margin-top:36px;">
+                    <div class="card-content">
+                      <div class="card-content-inner">Escribe en la parte superior para encontrar nuevos amigos.</div>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <a href="javascript:app.buscarAmigos.cancelar(true)" class="link back">
+                Cancelar
+              </a>
+              <a href="#" class="link">
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/framework7.js"></script>
+      <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>
+      <script src="https://cdn.ravenjs.com/3.0.4/raven.min.js"></script>
+      <script type="text/javascript">
+    Raven.config('https://f7a12bdeeb8d49ac97ee9acca6752a2f@app.getsentry.com/82490').install();
+    Raven.setUserContext({
+    email: 'cm961224@gmail.com',
+    id: 'tupapitomk24'
+})
+  </script>
+</body>
+
+</html>
+
+
+barrio

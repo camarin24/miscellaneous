@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div ng-controller="mainController">
+        Número de registros: <input type="number" step="1" min="0" max="5" ng-model="rowLimit" />
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cumpleaños</th>
+                    <th>Genero</th>
+                    <th>Salario (Number)</th>
+                    <th>Salario (Currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowLimit">
+                    <td>{{ employee.name | uppercase}}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ employee.gender | lowercase}}</td>
+                    <td>{{ employee.salary | number:2}}</td>
+                    <td>{{ employee.salary | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br><br>
+    <div ng-controller="sort">
+        Sort by :
+        <select ng-model="sortBy">
+            <option value="name">Name ASC</option>
+            <option value="dateOfBirth">Cumpleaños ASC</option>
+            <option value="gender">Genero ASC</option>
+            <option value="-salary">Salario DESC</option>
+        </select>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cumpleaños</th>
+                    <th>Genero</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:sortBy">
+                    <td>{{ employee.name | uppercase}}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.salary | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br><br>
+    <div ng-controller="sortColumns">
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">
+                        Nombre
+                        <div ng-class="getSortClass('name')"></div>
+                    </th>
+                    <th ng-click="sortData('dateOfBirth')">
+                        Cumpleaños
+                        <div ng-class="getSortClass('dateOfBirth')"></div>
+                    </th>
+                    <th ng-click="sortData('gender')">
+                        Genero
+                        <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('salary')">
+                        Salario
+                        <div ng-class="getSortClass('salary')"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:sortBy:reverseSort">
+                    <td>{{ employee.name | uppercase}}</td>
+                    <td>{{ employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.salary | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

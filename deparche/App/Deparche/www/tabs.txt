@@ -1,0 +1,91 @@
+<div data-page="parches" class="page cached with-subnavbar">
+          <div class="navbar ">
+            <div class="navbar-inner with-subnavbar">
+              <div class="left">
+                <a href="#" class="link icon-only open-panel" data-panel="left">
+                  <i class="icon icon-bars"></i>
+                </a>
+              </div>
+              <div class="center">Parches</div>
+            </div>
+          </div>
+          <a href="#crearParche" class="floating-button color-pink">
+            <i class="icon icon-plus"></i>
+          </a>
+          <!-- Scrollable page content-->
+          <div class="page-content" style="margin-top: 24px;">
+            <div class="content-block" style="background-color:#222148;margin-bottom: 0px;">
+              <!-- Buttons row as tabs controller -->
+              <div class="buttons-row">
+                <!-- Link to 1st tab, active -->
+                <a href="#tab1" class="tab-link active button button-big color-white">Mis parches</a>
+                <!-- Link to 2nd tab -->
+                <a href="#tab2" class="tab-link button button-big color-white">Buscar parches</a>
+              </div>
+            </div>
+            <div class="tabs-animated-wrap tabs-swipeable-wrap">
+              <div class="tabs">
+                <!-- Tab 1, active by default -->
+                <div id="tab1" class="tab active">
+                  <div class="content-block">
+                    <div class="list-block media-list">
+                      <ul><!--este seria el estilo de la lista de los parches, se muestra la imagen y el nombre-->
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><img src="..." width="44"></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Yellow Submarine</div>
+                              </div>
+                              <div class="item-subtitle">Beatles</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- Tab 2 -->
+                <div id="tab2" class="tab">
+                  <div class="content-block" style="padding: 0;margin: 0;">
+                    <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                      <div class="searchbar-input">
+                        <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+                      </div><a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+                      <!-- Search Bar overlay -->
+                    <div class="searchbar-overlay"></div>
+                    <div class="content-block">
+                    <div class="list-block list-block-search searchbar-found">
+                      <ul><!--este seria el estilo de la lista de los parches, se muestra la imagen y el nombre-->
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><img src="..." width="44"></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Yellow Submarine</div>
+                              </div>
+                              <div class="item-subtitle">Beatles</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-content">
+                            <div class="item-media"><img src="..." width="44"></div>
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">Amarillo</div>
+                              </div>
+                              <div class="item-subtitle">Beatles</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

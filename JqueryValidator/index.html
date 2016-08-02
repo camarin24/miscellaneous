@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+    <form action="">
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" id="inputEmail">
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Email</label>
+            <input type="text" id="nombre" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label for="pass">Email</label>
+            <input type="password" id="pass" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <input type="submit" value="enviar">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="app.js"> </script>
+    <script>
+        $('form').validator().on('submit', function (e) {
+            if (e.isDefaultPrevented()) {
+                redirect();
+                return false;
+            } else {
+                return true;
+            }
+            
+        })
+    </script>
+</body>
+
+</html>
